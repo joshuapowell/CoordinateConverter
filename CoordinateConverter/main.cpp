@@ -8,6 +8,27 @@
 
 #include <iostream>
 
+double convert_dms_to_dd(std::string degree, std::string minute, std::string second){
+
+    double decimal_degrees = NULL;
+
+    std::string::size_type size_t;
+
+    //
+    // Convert user input to doubles
+    //
+    double user_input_degree = std::stof (degree, &size_t);
+    double user_input_minute = std::stof (minute, &size_t);
+    double user_input_second = std::stof (second, &size_t);
+    
+    //
+    // Run conversion of Degrees+Minutes+Seconds to Decimal Degrees
+    //
+    decimal_degrees = user_input_degree + (user_input_minute/60) + (user_input_second/3600);
+
+    return decimal_degrees;
+}
+
 int main(int argc, const char * argv[]) {
 
     std::cout << "Coordinate Converter\n";
@@ -18,10 +39,6 @@ int main(int argc, const char * argv[]) {
     std::string coordinate_degree;
     std::string coordinate_minute;
     std::string coordinate_second;
-
-    std::string::size_type size_t;
-
-    float decimal_degrees = NULL;
 
     //
     // Collect User Input to Convert
@@ -36,16 +53,10 @@ int main(int argc, const char * argv[]) {
     getline(std::cin, coordinate_second);
 
     //
-    // Convert user input to doubles
-    //
-    double user_input_degree = std::stof (coordinate_degree, &size_t);
-    double user_input_minute = std::stof (coordinate_minute, &size_t);
-    double user_input_second = std::stof (coordinate_second, &size_t);
-
-    //
     // Run conversion of Degrees+Minutes+Seconds to Decimal Degrees
     //
-    decimal_degrees = user_input_degree + (user_input_minute/60) + (user_input_second/3600);
+    double decimal_degrees;
+    decimal_degrees = convert_dms_to_dd(coordinate_degree, coordinate_minute, coordinate_second);
 
     std::cout << "Decimal Coordinate: " << decimal_degrees << std::endl;
 
