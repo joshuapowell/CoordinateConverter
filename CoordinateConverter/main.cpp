@@ -11,5 +11,14 @@
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
+
+    std::string input;
+
+    std::cout << "Enter command" << std::endl;
+
+    getline(std::cin, input);
+
+    std::cout << "You entered: " << input << std::endl;
+
     return 0;
 }
