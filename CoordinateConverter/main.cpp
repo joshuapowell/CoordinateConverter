@@ -9,16 +9,45 @@
 #include <iostream>
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
 
-    std::string input;
+    std::cout << "Coordinate Converter\n";
 
-    std::cout << "Enter command" << std::endl;
+    //
+    // Convert Degrees Minutes Seconds Coordinate to Decimal Degrees
+    //
+    std::string coordinate_degree;
+    std::string coordinate_minute;
+    std::string coordinate_second;
 
-    getline(std::cin, input);
+    std::string::size_type size_t;
 
-    std::cout << "You entered: " << input << std::endl;
+    float decimal_degrees = NULL;
+
+    //
+    // Collect User Input to Convert
+    //
+    std::cout << "Enter degree" << std::endl;
+    getline(std::cin, coordinate_degree);
+
+    std::cout << "Enter minute" << std::endl;
+    getline(std::cin, coordinate_minute);
+
+    std::cout << "Enter second" << std::endl;
+    getline(std::cin, coordinate_second);
+
+    //
+    // Convert user input to doubles
+    //
+    double user_input_degree = std::stof (coordinate_degree, &size_t);
+    double user_input_minute = std::stof (coordinate_minute, &size_t);
+    double user_input_second = std::stof (coordinate_second, &size_t);
+
+    //
+    // Run conversion of Degrees+Minutes+Seconds to Decimal Degrees
+    //
+    decimal_degrees = user_input_degree + (user_input_minute/60) + (user_input_second/3600);
+
+    std::cout << "Decimal Coordinate: " << decimal_degrees << std::endl;
 
     return 0;
 }
