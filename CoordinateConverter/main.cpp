@@ -10,7 +10,7 @@
 
 double convert_dms_to_dd(std::string degree, std::string minute, std::string second){
 
-    double decimal_degrees = NULL;
+    double decimal_degrees;
 
     std::string::size_type size_t;
 
