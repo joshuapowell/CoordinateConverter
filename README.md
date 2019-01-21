@@ -40,3 +40,6 @@ Enter second
 
 ## Conversion Equation
 dd = d + m/60 + s/3600
+
+## Note
+This project is part of my personal multi-language project.
